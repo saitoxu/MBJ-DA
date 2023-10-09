@@ -1,0 +1,8 @@
+__pycache__
+datasets/**/*
+!datasets/.keep
+trained_model/**/*
+!trained_model/.keep
+local
+
+*.log
