@@ -2,9 +2,9 @@ import torch
 import torch.nn as nn
 
 
-class DJR(torch.nn.Module):
+class Model(torch.nn.Module):
     def __init__(self, user_size: int, job_size: int, behavior_size: int, dim: int, da_size: int, device: str):
-        super(DJR, self).__init__()
+        super(Model, self).__init__()
         self.user_size = user_size
         self.job_size = job_size
         self.behavior_size = behavior_size

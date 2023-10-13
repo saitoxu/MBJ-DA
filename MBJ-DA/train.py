@@ -9,7 +9,7 @@ from .dataset import AuxiliaryTrainDataset, TargetTrainDataset, ValDataset
 from .utils import EarlyStopping, seed_everything, NegativeSampler
 from .metrics import evaluate
 from .logger import getLogger
-from .model import DJR
+from .model import Model
 
 
 def train(auxiliary_dataloader, target_dataloader, model, optimizer, sampler, neg_size, device, logger):
@@ -87,7 +87,7 @@ if __name__ == '__main__':
     job_size = auxiliary_train_data.job_size
     behavior_size = auxiliary_train_data.behavior_size
     weight_decay = 0.0001
-    model = DJR(
+    model = Model(
         user_size=user_size,
         job_size=job_size,
         behavior_size=behavior_size,
