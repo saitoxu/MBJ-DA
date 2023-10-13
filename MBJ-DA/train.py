@@ -11,6 +11,7 @@ from .metrics import evaluate
 from .logger import getLogger
 from .model import DJR
 
+
 def train(auxiliary_dataloader, target_dataloader, model, optimizer, sampler, neg_size, device, logger):
     model.train()
     dataloaders = [auxiliary_dataloader, target_dataloader]
@@ -57,10 +58,10 @@ def train(auxiliary_dataloader, target_dataloader, model, optimizer, sampler, ne
         batch_continue = any(continue_flags)
         batch += 1
 
+
 if __name__ == '__main__':
     start = int(time())
     device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
-    # device = 'cpu'
     args = parse_args()
     seed_everything(args.seed)
 
@@ -100,7 +101,6 @@ if __name__ == '__main__':
     negative_sampler = NegativeSampler(data_path, job_size)
 
     Ks = eval(args.Ks)
-    evaluate(val_dataloader, model, Ks, negative_sampler, device, logger.debug)
     epoch = args.epoch
     test_interval = 5
     for t in range(args.epoch):

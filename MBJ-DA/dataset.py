@@ -3,6 +3,7 @@ import pandas as pd
 from typing import List
 import pickle
 
+
 class BaseTrainDataset(Dataset):
     def _calc_stats(self, data_path: str) -> int:
         user_size = 0
