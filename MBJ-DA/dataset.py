@@ -1,7 +1,6 @@
 from torch.utils.data import Dataset
 import pandas as pd
 from typing import List
-import pickle
 
 
 class BaseTrainDataset(Dataset):
@@ -25,9 +24,7 @@ class BaseTrainDataset(Dataset):
         return user_size, job_size, behavior_size
 
     def _load_train_data(self, data_path: str, user_size: int, job_size: int, behavior_size: int):
-        auxiliary_data, target_data = self._load_cache(data_path)
-        if len(auxiliary_data) > 0:
-            return auxiliary_data, target_data
+        auxiliary_data, target_data = [], []
 
         job_availability = []
         with open(f'{data_path}/jobs.txt') as f:
@@ -71,8 +68,6 @@ class BaseTrainDataset(Dataset):
             auxiliary_data += self._convert_auxiliary_mtx_to_list(mtx, i)
         target_data = self._convert_target_mtx_to_list(target_mtx, da_mtx)
 
-        self._save_cache(data_path, [auxiliary_data, target_data])
-
         return auxiliary_data, target_data
 
     def _convert_auxiliary_mtx_to_list(self, mtx: List[List[int]], behavior_id: int):
@@ -91,19 +86,6 @@ class BaseTrainDataset(Dataset):
                 if cell == 1:
                     data.append([i, j, total])
         return data
-
-    def _load_cache(self, data_path: str):
-        data = [[], []]
-        try:
-            with open(f'{data_path}/cache.pickle', mode='rb') as f:
-                data = pickle.load(f)
-        except FileNotFoundError:
-            pass
-        return data
-
-    def _save_cache(self, data_path: str, data):
-        with open(f'{data_path}/cache.pickle', mode='wb') as f:
-            pickle.dump(data, f)
 
     def _load_test_data(self, data_path: str, file: str) -> None:
         data = []
