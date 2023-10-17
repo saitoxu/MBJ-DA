@@ -68,9 +68,32 @@ You can adapt our code for your own dataset with the following dataset format.
 
 ### Dataset format
 
-To use our code, the following two types of data are required.
+To use our code, you need the following four types of data.
+
+#### 1. jobs.txt
 
 TODO
+
+```txt
+<job_id> <start_ts> <end_ts>
+```
+
+#### 2. train.txt
+
+TODO
+
+```txt
+<user_id> <job_id>:<behavior_id>:<interaction_ts> ...
+```
+
+#### 3. val.txt
+
+TODO
+
+#### 4. test.txt
+
+This is the data used for evaluation.
+It has the same format as val.txt.
 
 ## Citation
 
