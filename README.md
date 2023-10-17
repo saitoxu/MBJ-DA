@@ -72,7 +72,9 @@ To use our code, you need the following four types of data.
 
 #### 1. jobs.txt
 
-TODO
+This is data for the job posting start time and end time.
+The format is below.
+`<start_ts>` and `<end_ts>` must be integers.
 
 ```txt
 <job_id> <start_ts> <end_ts>
@@ -80,7 +82,9 @@ TODO
 
 #### 2. train.txt
 
-TODO
+This is interaction data for each user.
+Each interaction is represented in the format `<job_id>:<behavior_id>:<interaction_ts>`.
+`<behavior_id>` must be an integer.
 
 ```txt
 <user_id> <job_id>:<behavior_id>:<interaction_ts> ...
@@ -88,7 +92,8 @@ TODO
 
 #### 3. val.txt
 
-TODO
+This is the interaction data used for validation.
+The format is the same as `train.txt`, but the interaction data only includes a single entry related to the target behavior.
 
 #### 4. test.txt
 
