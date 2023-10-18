@@ -4,6 +4,19 @@
 
 ## Introduction
 
+In recent years, we can see a lot of job postings on the Internet, providing us with more diverse job opportunities.
+As a result, it is getting more and more difficult for job seekers to find job postings relevant to their preferences.
+Consequently, job recommendations play an important role to reduce the burden of job searching.
+Generally, job postings have a publication period, for example, 30 days.
+Then they have been expired since the positions were occupied.
+As a result, job seekers may be frustrated when they experience such situations as they cannot apply for the positions.
+This indicates that job seekers may have strong preferences for job postings even if their application behaviors cannot be observed.
+This kind of gap has not been investigated in the line of Multi-Behavior Recommendation.
+Therefore, in this work, we propose a new job recommendation model, called Multi-Behavior Job Recommendation with Dynamic Availability (MBJ-DA), which takes into account: (1) auxiliary behaviors other than an application behavior and (2) the influence of dynamic availability of job postings.
+MBJ-DA enables a more accurate estimation of each user’s actual preferences by explicitly distinguishing the noise potentially inherent in auxiliary behaviors.
+Furthermore, by explicitly considering the influence of the dynamic availability of job postings, MBJ-DA can mitigate biases resulting from the influence and estimate each user’s actual preferences more accurately.
+Experimental results on our dataset constructed from an actual job search website show that MBJ-DA outperforms several state-of-the-arts in terms of MRR and nDCG.
+
 ## Usage
 
 ### Requirements
